@@ -1,0 +1,41 @@
+import pandas as pd
+
+df = pd.read_csv(r"C:\Users\Pragna Sree\Downloads\data analysis\netflix_titles.csv")
+
+# 2. Identify missing values using .isnull()
+null_counts = df.isnull().sum()
+print("Missing values per column:\n", null_counts)
+
+# 3. Handle missing values 
+#    Here: fill missing 'country' with 'Unknown' and 'date_added' with a placeholder
+df["country"] = df["country"].fillna("Unknown")
+df["date_added"] = df["date_added"].fillna("01-01-1900")
+#    For 'director' and 'cast', fill with 'Unknown' as well
+df["director"] = df["director"].fillna("Unknown")
+df["cast"] = df["cast"].fillna("Unknown")
+
+# 4. Remove duplicate rows
+df = df.drop_duplicates()
+
+# 5. Standardize text values (strip spaces, lowercase/title case)
+df["country"] = df["country"].str.strip().str.title()
+df["type"] = df["type"].str.strip().str.title()
+
+# 6. Convert date format to consistent type (dd-mm-yyyy)
+df["date_added"] = pd.to_datetime(df["date_added"], errors="coerce")
+df["date_added_formatted"] = df["date_added"].dt.strftime("%d-%m-%Y")
+
+# 7. Rename column headers to be clean and uniform (lowercase, no spaces)
+df.columns = (
+    df.columns
+      .str.strip()
+      .str.lower()
+      .str.replace(" ", "_")
+)
+
+# 8. Check and fix data types
+df["release_year"] = df["release_year"].astype("Int64")
+print(df["date_added"].dtype)
+
+# 9. Save cleaned data
+df.to_csv("netflix_titles_cleaned.csv", index=False)

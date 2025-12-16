@@ -14,31 +14,46 @@
 - Converts `date_added` to `datetime`, adds a `dd-mm-yyyy` formatted column, and enforces proper data types like integer for `release_year`.
 - Exports the cleaned DataFrame to `netflix_titles.csv` in the working directory.
 
+  #Task 2
+  power bi dashboard report for ecommerce website zepto
+
 #TASK 3
 **Zepto Sales Data Analysis**
 This project analyzes Zepto sales data using MySQL. The dataset includes product details, category, city-wise sales, pricing, discounts, orders, and revenue. Analysis covers creating databases, tables, views, and performing queries with filtering, aggregation, sorting, and joins. Indexes are added for query optimization.
 **Dataset**
 File: zepto_sales_dataset.csv
-Columns: Product Name, Category, City, Original Price, Current Price, Discount, Orders, Total Revenue, Influencer Active
 **Steps**
 Create Database & Table
 MySQL database amazon_sales and table zepto_sales.
 Load Data
 Imported CSV data into zepto_sales.
-Create Views
-category_performance to summarize revenue and orders by category.
 Perform Queries
 Aggregate analysis (SUM, AVG, COUNT)
 Filtering (WHERE)
 Sorting (ORDER BY)
 Joins (INNER JOIN, LEFT JOIN)
-Subqueries for complex metrics
-Optimizations
 Indexes added on category, city, and other frequently queried columns.
-**Notes**
-Deleting the database removes all tables and views.
-Views must be recreated if the database is recreated.
-Enables quick analysis of sales trends, revenue, and influencer campaign impact.
 
+#Task 5
+Titanic EDA
+Overview
+This project performs a brief Exploratory Data Analysis (EDA) on the Titanic dataset to understand passenger details and survival patterns.
+
+Dataset
+File: train.csv
+Tools Used
+Python,Pandas,Seaborn,Matplotlib,Spyder IDE
+
+Analysis Performed
+Checked non-null and missing values
+Generated summary statistics
+Analyzed value counts for key features
+Visualized data using histograms, boxplots, pairplot, and heatmap
+
+Key Findings
+Females had a higher survival rate than males
+First-class passengers survived more
+Higher fare is associated with better survival chances
+Missing values exist in Age and Cabin columns
 
 

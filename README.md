@@ -34,6 +34,9 @@ Sorting (ORDER BY)
 Joins (INNER JOIN, LEFT JOIN)
 Indexes added on category, city, and other frequently queried columns.
 
+ #Task 2
+Power BI  Dashboard Design-global superstore
+
 #Task 5
 Titanic EDA
 Overview

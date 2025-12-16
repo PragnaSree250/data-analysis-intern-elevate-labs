@@ -1,0 +1,107 @@
+a) .describe(), .info(), .value_counts()
+import pandas as pd
+
+data = pd.read_csv("C:/Users/Pragna Sree/Desktop/train.csv")
+
+print("Non-null counts:")
+print(data.count())
+
+print("Survived count:")
+print(data['Survived'].value_counts())
+
+print("Sex count:")
+print(data['Sex'].value_counts())
+
+print("Pclass count:")
+print(data['Pclass'].value_counts())
+
+print("Embarked count:")
+print(data['Embarked'].value_counts())
+
+output:
+Non-null counts:
+PassengerId    891
+Survived       891
+Pclass         891
+Name           891
+Sex            891
+Age            714
+SibSp          891
+Parch          891
+Ticket         891
+Fare           891
+Cabin          204
+Embarked       889
+dtype: int64
+Survived count:
+0    549
+1    342
+Name: Survived, dtype: int64
+Sex count:
+male      577
+female    314
+Name: Sex, dtype: int64
+Pclass count:
+3    491
+1    216
+2    184
+Name: Pclass, dtype: int64
+Embarked count:
+S    644
+C    168
+Q     77
+Name: Embarked, dtype: int64
+Observation:
+Survived: More passengers did not survive than survived.
+Sex: Males are more than females.
+Pclass: Most passengers belong to 3rd class.
+Age: Missing values are present.
+Fare: Highly varied → possible outliers.
+
+b) Visualization using sns.pairplot() and sns.heatmap()
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+data = pd.read_csv("C:/Users/Pragna Sree/Desktop/train.csv")
+sns.pairplot(data, hue="Survived")
+plt.show()
+plt.figure(figsize=(10,6))
+sns.heatmap(data.corr(), annot=True, cmap="coolwarm")
+plt.show()
+
+output:
+graph in output task 5 file
+
+c) Identify Relationships & Trends
+Females survived more than males.
+Higher class passengers (Pclass=1) had better survival chances.
+Children and younger passengers survived more.
+Higher fare → higher survival probability.
+
+d) Histograms, Boxplots, Scatterplots
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+data = pd.read_csv("C:/Users/Pragna Sree/Desktop/train.csv")
+sns.histplot(data['Age'], bins=20, kde=True)
+plt.title("Age Distribution")
+plt.show()
+
+output:
+graph in output task 5 file
+
+
+e) Observations for Each Visual (Summary)
+Visual	Key Insight
+Pairplot	Survival strongly depends on Sex, Fare, Pclass
+Heatmap	Fare & Pclass correlated with survival
+Histogram	Majority passengers aged 20–40
+Boxplot	Higher fare increases survival chance
+Scatterplot	Young & rich passengers survived more
+
+f) Final Summary of Findings
+Gender is the strongest survival factor.
+Passenger class significantly impacts survival.
+Higher fare correlates with higher survival.
+Children and younger passengers had better chances.
+Missing values in Age need handling before modeling.
